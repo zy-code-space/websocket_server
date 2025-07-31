@@ -69,17 +69,16 @@ include_directories(
         /usr/include/aarch64-linux-gnu/
         /usr/include
         /usr/include/mysql/
-        /usr/local/cuda-11.4/targets/aarch64-linux/include
-        /usr/local/cuda-11.4/include
-        /usr/include/postgresql/)
+        /usr/local/cuda-10.2/targets/aarch64-linux/include
+        /usr/local/cuda-10.2/include
+)
 
 link_directories(
         /usr/local/lib
         /usr/lib/
-        /usr/local/cuda-11.4/targets/aarch64-linux/lib/
+        /usr/local/cuda-10.2/targets/aarch64-linux/lib/
         /usr/lib/aarch64-linux-gnu/
-        /usr/local/cuda-11.4/lib64
-        /usr/include/postgresql/internal
+        /usr/local/cuda-10.2/lib64
 )
 file(GLOB_RECURSE CURRENT_SOURCES
         ${PROJECT_SOURCE_DIR}/websocket/*.cpp
@@ -110,7 +109,6 @@ target_link_libraries(${PROJECT_NAME}
         pthread
         pthread rt
         dl m
-        pq # 链接到 PostgreSQL 库
         cuda
         stdc++fs  #解决日志std::experimental::filesystem 相关错误
 )
